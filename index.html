@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Auth System</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container" id="form-container">
+  <h2 id="form-title">Register</h2>
+
+  <!-- Registration Form -->
+  <div id="register-form">
+    <input type="email" id="reg-email" placeholder="Email" required>
+    <input type="password" id="reg-password" placeholder="Password" required>
+    <input type="password" id="reg-confirm" placeholder="Confirm Password" required>
+    <button onclick="register()">Register</button>
+    <p onclick="showLogin()">Already have an account? Login</p>
+  </div>
+
+  <!-- Login Form -->
+  <div id="login-form" style="display:none;">
+    <input type="email" id="login-email" placeholder="Email" required>
+    <input type="password" id="login-password" placeholder="Password" required>
+    <button onclick="login()">Login</button>
+    <p onclick="showRegister()">Don't have an account? Register</p>
+  </div>
+
+  <!-- Welcome Section -->
+  <div id="welcome" style="display:none;">
+    <h2>Welcome Back!</h2>
+    <p class="message" id="welcome-msg"></p>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
