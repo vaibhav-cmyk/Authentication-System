@@ -33,4 +33,4 @@ Supports **user registration, login, logout**, and password validation with a sl
 - Not suitable for production without a secure backend.  
 
 ## Author
-- Developed by [Your Name]
+- Developed by Vaibhav 
