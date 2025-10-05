@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dark Auth System</title>
+<title>Dark Auth System with Password Validator</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,22 +11,48 @@
 <div class="container" id="form-container">
   <h2 id="form-title">Register</h2>
 
-  <!-- Registration Form -->
-  <div id="register-form">
-    <input type="email" id="reg-email" placeholder="Email" required>
-    <input type="password" id="reg-password" placeholder="Password" required>
-    <input type="password" id="reg-confirm" placeholder="Confirm Password" required>
-    <button onclick="register()">Register</button>
-    <p onclick="showLogin()">Already have an account? Login</p>
+ <!-- Registration Form -->
+<div id="register-form">
+  <input type="email" id="reg-email" placeholder="Email" required>
+
+  <div class="password-container">
+    <input type="password" id="reg-password" placeholder="Password" required oninput="validatePassword()">
+    <span class="toggle-password" onclick="togglePassword('reg-password', this)">👁️</span>
   </div>
 
-  <!-- Login Form -->
-  <div id="login-form" style="display:none;">
-    <input type="email" id="login-email" placeholder="Email" required>
-    <input type="password" id="login-password" placeholder="Password" required>
-    <button onclick="login()">Login</button>
-    <p onclick="showRegister()">Don't have an account? Register</p>
+  <div class="password-container">
+    <input type="password" id="reg-confirm" placeholder="Confirm Password" required>
+    <span class="toggle-password" onclick="togglePassword('reg-confirm', this)">👁️</span>
   </div>
+
+  <!-- Password Rules -->
+  <ul class="password-rules">
+    <li id="rule-length">Minimum 8 characters</li>
+    <li id="rule-uppercase">At least one uppercase letter</li>
+    <li id="rule-lowercase">At least one lowercase letter</li>
+    <li id="rule-number">At least one number</li>
+    <li id="rule-special">At least one special character (!@#$%)</li>
+  </ul>
+  
+  <button onclick="register()">Register</button>
+  <p class="form-message" id="reg-message"></p>
+  <p onclick="showLogin()">Already have an account? Login</p>
+</div>
+
+<!-- Login Form -->
+<div id="login-form" style="display:none;">
+  <input type="email" id="login-email" placeholder="Email" required>
+
+  <div class="password-container">
+    <input type="password" id="login-password" placeholder="Password" required>
+    <span class="toggle-password" onclick="togglePassword('login-password', this)">👁️</span>
+  </div>
+
+  <button onclick="login()">Login</button>
+  <p class="form-message" id="login-message"></p>
+  <p onclick="showRegister()">Don't have an account? Register</p>
+</div>
+
 
   <!-- Welcome Section -->
   <div id="welcome" style="display:none;">
